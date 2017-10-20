@@ -1,0 +1,16 @@
+<div id="americaMovie" ng-controller="americaMovie">
+    <h1 class="page-header">{{americaMovieTitle}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item list-hover" ng-repeat="item in americaMovie">
+            <span class="badge">{{item.subject.rating.average}}</span>
+            <img ng-src="{{item.subject.images.medium}}">
+            <div class="des">
+                <h3>{{item.subject.title}}</h3>
+                <p><span>导演：</span><span ng-repeat="dy in item.subject.directors">{{dy.name}}&nbsp&nbsp</span></p>
+                <p><span>演员：</span><span ng-repeat="yy in item.subject.casts">{{yy.name}}&nbsp&nbsp</span></p>
+                <p><span>类型：</span><span ng-repeat="lx in item.subject.genres">{{lx}}&nbsp&nbsp</span></p>
+            </div>
+        </li>
+    </ul>
+    <div loading ng-if="loading"></div>
+</div>

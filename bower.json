@@ -1,0 +1,21 @@
+{
+  "name": "douban_movie",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "despair27 <17757400316@163.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^1.0.8",
+    "bootstrap": "^3.3.7"
+  }
+}

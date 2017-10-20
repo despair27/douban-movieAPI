@@ -1,0 +1,41 @@
+<div id="home" ng-controller="home">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span><a class="navbar-brand" href="#" ui-sref="home">豆瓣电影API</a></span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li ng-class="{active:type=='in_theaters'}"><a ui-sref="in_theaters({page:1,url:'in_theaters'})">正在热映</a></li>
+                    <li ng-class="{active:type=='coming_soon'}"><a ui-sref="coming_soon({page:1,url:'coming_soon'})">即将上映</a></li>
+                    <li ng-class="{active:type=='top250'}"><a ui-sref="top250({page:1,url:'top250'})">Top250</a></li>
+                    <li ng-class="{active:type=='america-movie'}"><a ui-sref="america-movie">北美票房榜</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div ui-view>
+                    <h1 class="text-center text-muted">欢迎光临影豆瓣电影Api V2</h1>
+                    <img src="image/wellcome.jpg" class="img-responsive col-sm-offset-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

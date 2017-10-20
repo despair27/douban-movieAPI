@@ -1,0 +1,28 @@
+<div ng-controller="movieList" id="movieList">
+    <h1 class="page-header">{{movieListTitle}}</h1>
+    <ul class="list-group">
+        <li class="list-group-item list-hover" ng-repeat="item in movieList">
+            <span class="badge">{{item.rating.average}}</span>
+            <img ng-src="{{item.images.medium}}" alt="" class="img-responsive" ui-sref="">
+            <div class="des">
+                <h3 ng-bind="item.title" class="text-left"></h3>
+                <p>
+                    <span>导演：</span><span ng-repeat="n in item.directors">{{n.name}}&nbsp&nbsp</span>
+                    <span ng-if="url=='top250'">年份：{{item.year}}</span>
+                </p>
+                <p><span>演员：</span><span ng-repeat="c in item.casts">{{c.name}}&nbsp&nbsp</span></p>
+                <p><span>类型：</span><span ng-repeat="v in item.genres">{{v}}&nbsp&nbsp</span></p>
+            </div>
+        </li>
+    </ul>
+    <div loading ng-if="loading"></div>
+    <div ng-if="!loading" id="page">
+        <p>总计：{{movieListTotal}}条 &nbsp;&nbsp;第{{page}}/{{pages}}页</p>
+        <ul class="pagination">
+            <li ng-click="pre()" ng-class="{disabled:pageNums==1?true:false}"><a>&laquo</a></li>
+            <!--每组分页从0,5,10,15下标开始显现5条数据-->
+            <li ng-class="{active:page==item}" ng-repeat="item in pageLi|limitTo:5:(pageNums-1)*5"><a ui-sref="{{url.http}}({page:item})">{{item}}</a></li>
+            <li ng-click="next()" ng-class="{disabled:pageNums==pageGroup?true:false}"><a>&raquo</a></li>
+        </ul>
+    </div>
+</div>
