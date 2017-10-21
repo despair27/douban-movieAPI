@@ -1,4 +1,6 @@
 <div ng-controller="movieList" id="movieList">
+    <!--请求数据时的loading载入标题-->
+    <h1 class="page-header" ng-if="!movieListTitle">Loading......</h1>
     <h1 class="page-header">{{movieListTitle}}</h1>
     <ul class="list-group">
         <li class="list-group-item list-hover" ng-repeat="item in movieList">
@@ -8,7 +10,7 @@
                 <h3 ng-bind="item.title" class="text-left"></h3>
                 <p>
                     <span>导演：</span><span ng-repeat="n in item.directors">{{n.name}}&nbsp&nbsp</span>
-                    <span ng-if="url=='top250'">年份：{{item.year}}</span>
+                    <span ng-if="year">年份：{{item.year}}</span>
                 </p>
                 <p><span>演员：</span><span ng-repeat="c in item.casts">{{c.name}}&nbsp&nbsp</span></p>
                 <p><span>类型：</span><span ng-repeat="v in item.genres">{{v}}&nbsp&nbsp</span></p>

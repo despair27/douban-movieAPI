@@ -1,4 +1,5 @@
 <div id="americaMovie" ng-controller="americaMovie">
+    <h1 class="page-header" ng-if="!americaMovieTitle">Loading......</h1>
     <h1 class="page-header">{{americaMovieTitle}}</h1>
     <ul class="list-group">
         <li class="list-group-item list-hover" ng-repeat="item in americaMovie">

@@ -12,11 +12,19 @@ var app = {
 };
 // 拷贝浏览器要用的一些库文件
 gulp.task('lib',function(){
-   gulp.src(['bower_components/**/*.js','bower_components/**/*.css'])
-   .pipe(gulp.dest(app.devPath + 'lib'))
-   .pipe(gulp.dest(app.prdPath + 'lib'))
-   //通知浏览器刷新
-   .pipe($.connect.reload());
+    gulp.src(['bower_components/**/*.js'])
+        .pipe(gulp.dest(app.devPath + 'lib'))
+        .pipe(gulp.dest(app.prdPath + 'lib'))
+        //通知浏览器刷新
+        .pipe($.connect.reload());
+});
+// 拷贝浏览器要用的一些库文件
+gulp.task('bootstrap',function(){
+    gulp.src(['bower_components/bootstrap/**/*'])
+        .pipe(gulp.dest(app.devPath + 'lib/bootstrap'))
+        .pipe(gulp.dest(app.prdPath + 'lib/bootstrap'))
+        //通知浏览器刷新
+        .pipe($.connect.reload());
 });
 //html文件处理
 gulp.task('html',function(){
@@ -69,7 +77,7 @@ gulp.task('image',function(){
    .pipe(gulp.dest(app.prdPath + 'image'))
    .pipe($.connect.reload());
 });
-gulp.task('bulid',['image','less','js','html','lib','json']);
+gulp.task('bulid',['image','less','js','html','lib','json','bootstrap']);
 //清除任务
 gulp.task('clean',function(){
     gulp.src([app.prdPath,app.devPath])
@@ -90,6 +98,6 @@ gulp.task('serve',['bulid'],function(){
    gulp.watch(app.srcPath + 'data/**/*.json',['json']);
    gulp.watch(app.srcPath + 'image/**/*',['image']);
    gulp.watch(app.srcPath + 'style/**/*.less',['less']);
-   gulp.watch(app.srcPath + 'script/**/*.js',['js']);
+   gulp.watch(app.srcPath + '**/*.js',['js']);
 });
 gulp.task('default',['serve']);

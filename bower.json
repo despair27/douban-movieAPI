@@ -16,6 +16,8 @@
   ],
   "dependencies": {
     "angular-ui-router": "^1.0.8",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "loadjs": "^3.5.1",
+    "scriptjs": "^2.5.8"
   }
 }

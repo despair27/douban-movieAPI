@@ -11,11 +11,9 @@
                 <span><a class="navbar-brand" href="#" ui-sref="home">豆瓣电影API</a></span>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a></li>
-                </ul>
                 <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" class="form-control" placeholder="电影名/导演/演员/类型/年份" ng-model="search">
+                    <button class="glyphicon glyphicon-search btn btn-primary" ui-sref="search({url:'search',q:search,page:1})"></button>
                 </form>
             </div>
         </div>
