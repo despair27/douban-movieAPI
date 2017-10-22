@@ -5,7 +5,7 @@
     <ul class="list-group">
         <li class="list-group-item list-hover" ng-repeat="item in movieList">
             <span class="badge">{{item.rating.average}}</span>
-            <img ng-src="{{item.images.medium}}" alt="" class="img-responsive" ui-sref="">
+            <img ng-src="{{item.images.medium}}" alt="" class="img-responsive" ui-sref="movie-detail({id:item.id})">
             <div class="des">
                 <h3 ng-bind="item.title" class="text-left"></h3>
                 <p>

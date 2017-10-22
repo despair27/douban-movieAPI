@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="lib/scriptjs/dist/script.js"></script>
+    <script src="lib/angular-loader/angular-loader.min.js"></script>
     <script>
-        $script('lib/angular/angular.min.js',function(){
-            $script("lib/angular-ui-router/release/angular-ui-router.min.js",function(){
-                $script("js/index.js")
-            })
+        $script(['lib/angular/angular.min.js',
+            'lib/angular-ui-router/release/angular-ui-router.min.js',
+            'js/index.js'
+            ], function(){
         });
     </script>
 </head>

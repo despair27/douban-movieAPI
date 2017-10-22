@@ -4,7 +4,7 @@
     <ul class="list-group">
         <li class="list-group-item list-hover" ng-repeat="item in americaMovie">
             <span class="badge">{{item.subject.rating.average}}</span>
-            <img ng-src="{{item.subject.images.medium}}">
+            <img ng-src="{{item.subject.images.medium}}" ui-sref="movie-detail({id:item.subject.id})">
             <div class="des">
                 <h3>{{item.subject.title}}</h3>
                 <p><span>导演：</span><span ng-repeat="dy in item.subject.directors">{{dy.name}}&nbsp&nbsp</span></p>

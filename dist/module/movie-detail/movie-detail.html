@@ -1,0 +1,33 @@
+<div ng-controller="movieDetail" id="movieDetail">
+    <h3 class="page-header" ng-if="!movieDetail">Loading......</h3>
+    <div ng-if="movieDetail">
+        <h3 class="page-header">{{movieDetail.original_title}}&nbsp;<span ng-if="movieDetail.original_title!=movieDetail.title">{{movieDetail.title}}</span>({{movieDetail.year}})</h3>
+        <img ng-src="{{movieDetail.images.medium}}" alt="">
+        <div class="detail">
+            <p>导演：<span ng-repeat="item in movieDetail.directors"><a href="{{item.alt}}">{{item.name}}&nbsp;&nbsp;</a></span></p>
+            <p ng-if="movieDetail.writers">编剧：<span ng-repeat="item in movieDetail.writers">{{item.name}}/</span></p>
+            <p>主演：<span ng-repeat="item in movieDetail.casts"><a href="{{item.alt}}">{{item.name}}&nbsp;&nbsp;</a></span></p>
+            <p>类型：<span ng-repeat="item in movieDetail.genres">{{item}}&nbsp;&nbsp;</span></p>
+            <p>制片地区/国家：<span ng-repeat="item in movieDetail.countries">{{item}}&nbsp;&nbsp;</span></p>
+        </div>
+        <div class="summary">
+            <h3 class="page-header text-success">{{movieDetail.title}}的剧情介绍......</h3>
+            <p>{{movieDetail.summary}}</p>
+        </div>
+        <div class="casts">
+            <h3 class="page-header text-success">{{movieDetail.title}}的影人......</h3>
+            <div class="row">
+                <div class="col-md-2" ng-repeat="item in movieDetail.casts">
+                    <div class="thumbnail">
+                        <a href="{{item.alt}}"><img ng-src="{{item.avatars.medium}}" alt="" class="img-responsive"></a>
+                        <p class="caption text-center">
+                            <a href="{{item.alt}}">{{item.name}}</a>
+                            <p class="text-center"><span ng-if="isDirectors">导演&nbsp;</span>演员</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div loading ng-if="!movieDetail"></div>
+</div>
