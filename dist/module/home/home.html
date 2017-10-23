@@ -12,8 +12,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="电影名/导演/演员/类型/年份" ng-model="search">
-                    <button class="glyphicon glyphicon-search btn btn-primary" ui-sref="search({url:'search',q:search,page:1})"></button>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="电影名/导演/演员/类型/年份" ng-model="search">
+                        <span class="glyphicon glyphicon-search input-group-addon" ui-sref="search({url:'search',q:search,page:1})"></span>
+                    </div>
                 </form>
             </div>
         </div>
